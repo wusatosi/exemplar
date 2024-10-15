@@ -95,6 +95,7 @@ jobs:
         id: runner-image-version
         run: |
           echo "image-version=$(echo $ImageVersion)" >> "$GITHUB_OUTPUT"
+          echo $ImageVersion
         working-directory: .
       - name: modify number of bits to use for ASLR entropy
         if: ${{ steps.runner-image-version.outputs.ImageVersion }} == '20240310.1.0'
@@ -106,11 +107,12 @@ jobs:
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
-      #   # GitHub Action comes with the latest stable G++ already.
-      # - name: Install Clang
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install clang
+      - name: Print installed softwares
+        run: |
+          clang++ --version
+          g++ --version
+          cmake --version
+          ninja --version
       - name: Build
         run: |
           cmake -B build -S . "${{ matrix.cmake_args }}"
