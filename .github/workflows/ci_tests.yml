@@ -106,10 +106,10 @@ jobs:
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
-      - name: Install Clang & G++
-        run: |
-          sudo apt-get update
-          sudo apt-get install g++ clang
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "10.0"
       - name: Build
         run: |
           cmake -B build -S . "${{ matrix.cmake_args }}"
