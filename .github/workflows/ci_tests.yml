@@ -100,27 +100,25 @@ jobs:
         run: |
           sudo sysctl -a | grep vm.mmap.rnd
           sudo sysctl -w vm.mmap_rnd_bits=28
-        working-directory: .
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: false
-          load: true
-          tags: ${{ matrix.id }}
-          file: .ci/docker/${{ matrix.platform }}.Dockerfile
-          build-args: |
-            cc=${{ matrix.cc }}
-            cxx=${{ matrix.cpp }}
-            cmake_args=${{ matrix.cmake_args }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-      - name: Run tests
+      - name: Build
         run: |
-          docker run ${{ matrix.id }} ctest --test-dir build -C Release
-          docker run ${{ matrix.id }} ctest --test-dir build -C Debug
+          cmake -B build -S . ${{ matrix.cmake_args }}
+          cmake --build build --config Release --verbose
+          cmake --build build --config Release --target all_verify_interface_header_sets
+          cmake --install build --config Release --prefix /opt/beman.exemplar
+          cmake --build build --config Debug --verbose
+          cmake --build build --config Debug --target all_verify_interface_header_sets
+          cmake --install build --config Debug --prefix /opt/beman.exemplar
+          find /opt/beman.exemplar -type f
+        env:
+          CC: ${{ matrix.cc }}
+          CXX: ${{ matrix.cpp }}
+          CMAKE_GENERATOR: "Ninja Multi-Config"
+          CMAKE_EXPORT_COMPILE_COMMANDS: "on"
+      - name: Test
+        run: |
+          ctest --test-dir build -C Release
+          ctest --test-dir build -C Debug
 
   create-issue-when-fault:
     runs-on: ubuntu-latest
