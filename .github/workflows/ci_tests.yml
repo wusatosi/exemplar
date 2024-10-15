@@ -16,80 +16,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cmake_args: # TODO: santizier
+        compiler:
+          - cpp: g++
+            c: gcc
+          - cpp: clang++
+            c: clang
+        cmake_args:
           - "" 
           - "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
           - "-DBUILD_SHARED_LIBS=on"
           - "-DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=on"
           - "-DCMAKE_CXX_STANDARD=23 -DCMAKE_CXX_STANDARD_REQUIRED=on"
           - "-DCMAKE_CXX_STANDARD=26 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        compiler: [ {cpp: g++, c: gcc}, {cpp: clang++, c: clang} ]
-        # include:
-        #   - id: ubuntu-gcc-werror
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
-        #   - id: ubuntu-gcc-aubsan
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=address -fsanitize=undefined"
-        #   - id: ubuntu-gcc-tsan
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=thread"
-        #   - id: ubuntu-gcc-static
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: ""
-        #   - id: ubuntu-gcc-dynamic
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DBUILD_SHARED_LIBS=on"
-        #   - id: ubuntu-clang-static
-        #     platform: ubuntu
-        #     cc: clang
-        #     cpp: clang++
-        #     cmake_args: ""
-        #   - id: ubuntu-clang-dynamic
-        #     platform: ubuntu
-        #     cc: clang
-        #     cpp: clang++
-        #     cmake_args: "-DBUILD_SHARED_LIBS=on"
-        #   - id: ubuntu-gcc-static-cxx20
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        #   - id: ubuntu-gcc-static-cxx23
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=23 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        #   - id: ubuntu-gcc-static-cxx26
-        #     platform: ubuntu
-        #     cc: gcc
-        #     cpp: g++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=26 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        #   - id: ubuntu-clang-static-cxx20
-        #     platform: ubuntu
-        #     cc: clang
-        #     cpp: clang++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        #   - id: ubuntu-clang-static-cxx23
-        #     platform: ubuntu
-        #     cc: clang
-        #     cpp: clang++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=23 -DCMAKE_CXX_STANDARD_REQUIRED=on"
-        #   - id: ubuntu-clang-static-cxx26
-        #     platform: ubuntu
-        #     cc: clang
-        #     cpp: clang++
-        #     cmake_args: "-DCMAKE_CXX_STANDARD=26 -DCMAKE_CXX_STANDARD_REQUIRED=on"
+        include:
+          - cpp: g++
+            c: gcc
+            cmake_args: "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
+          - cpp: g++
+            c: gcc
+            cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=address -fsanitize=undefined"
+          - cpp: g++
+            c: gcc
+            cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=thread"
 
     steps:
       - uses: actions/checkout@v4
