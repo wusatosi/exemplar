@@ -97,6 +97,7 @@ jobs:
           if [ "$ImageVersion" = "20240310.1.0" ]; then
               sudo sysctl -a | grep vm.mmap.rnd
               sudo sysctl -w vm.mmap_rnd_bits=28
+              echo "Implemented ASLR work-around for LLVM"
           fi
       - name: Install CMake
         uses: lukka/get-cmake@latest
