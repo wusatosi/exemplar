@@ -12,17 +12,17 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
+        platform: [ubuntu-latest]
         compiler:
           - cpp: g++
             c: gcc
           - cpp: clang++
             c: clang
         cmake_args:
-          - description: "Static"
+          - description: "Static default"
             args: "" 
           - description: "Dynamic"
             args: "-DBUILD_SHARED_LIBS=on"
@@ -33,32 +33,30 @@ jobs:
           - description: "static C++26"
             args: "-DCMAKE_CXX_STANDARD=26 -DCMAKE_CXX_STANDARD_REQUIRED=on"
         include:
-          - compiler:
+          - platform: ubuntu-latest
+            compiler:
               cpp: g++
               c: gcc
             cmake_args:
               description: "Werror"
               cmake_args: "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
-          - compiler:
+          - platform: ubuntu-latest
+            compiler:
               cpp: g++
               c: gcc
             cmake_args:
               description: "Addr-San"
               cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=address -fsanitize=undefined"
-          - compiler:
+          - platform: ubuntu-latest
+            compiler:
               cpp: g++
               c: gcc
             cmake_args:
-              description: "Thread-San"
+              description: "T-San"
               cmake_args: "-DCMAKE_CXX_FLAGS=-fsanitize=thread"
-          - compiler:
-              cpp: g++
-              c: gcc
-            cmake_args:
-              description: "werror"
-              args: "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
 
-    name: "Bulid & Test: ${{ matrix.compiler.c }} w ${{ matrix.cmake_args.description }}"
+    name: "Bulid & Test: ${{ matrix.compiler.c }} ${{ matrix.cmake_args.description }}"
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
       - name: Install CMake
