@@ -50,7 +50,7 @@ jobs:
             description: "werror"
             args: "-DCMAKE_CXX_FLAGS='-Werror=all -Werror=extra'"
 
-    name: Bulid & Test: ${{ matrix.c }} w ${{ matrix.cmake_args.description }}
+    name: Bulid & Test: ${{ matrix.c }}
     steps:
       - uses: actions/checkout@v4
       - name: Install CMake
