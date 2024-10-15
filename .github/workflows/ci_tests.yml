@@ -85,20 +85,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      # GitHub runners have updated the Ubuntu Linux Kernel to use strong ASLR,
-      # but LLVM is not configured for this change, and thus the address
-      # sanitizer breaks.
-      #
-      # The next image is supposed to fix this, so if the Ubuntu image has been
-      # updated, this work around is no longer required.
-      - name: Strong ASLR work-around
-        run: |
-          echo $ImageVersion
-          if [ "$ImageVersion" = "20240310.1.0" ]; then
-              sudo sysctl -a | grep vm.mmap.rnd
-              sudo sysctl -w vm.mmap_rnd_bits=28
-              echo "Implemented ASLR work-around for LLVM"
-          fi
       - name: Install CMake
         uses: lukka/get-cmake@latest
         with:
