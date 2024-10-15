@@ -100,6 +100,17 @@ jobs:
         run: |
           sudo sysctl -a | grep vm.mmap.rnd
           sudo sysctl -w vm.mmap_rnd_bits=28
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+                  clang \
+                  clang-tidy \
+                  g++ \
+                  ninja-build \
+                  cmake \
+                  git
+          sudo apt-get clean
       - name: Build
         run: |
           cmake -B build -S . ${{ matrix.cmake_args }}
