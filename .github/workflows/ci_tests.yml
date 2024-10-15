@@ -91,17 +91,13 @@ jobs:
       #
       # The next image is supposed to fix this, so if the Ubuntu image has been
       # updated, this work around is no longer required.
-      - name: get runner image version
-        id: runner-image-version
+      - name: Strong ASLR work-around
         run: |
-          echo "image-version=$(echo $ImageVersion)" >> "$GITHUB_OUTPUT"
           echo $ImageVersion
-        working-directory: .
-      - name: modify number of bits to use for ASLR entropy
-        if: ${{ steps.runner-image-version.outputs.ImageVersion }} == '20240310.1.0'
-        run: |
-          sudo sysctl -a | grep vm.mmap.rnd
-          sudo sysctl -w vm.mmap_rnd_bits=28
+          if [ "$ImageVersion" = "20240310.1.0" ]; then
+              sudo sysctl -a | grep vm.mmap.rnd
+              sudo sysctl -w vm.mmap_rnd_bits=28
+          fi
       - name: Install CMake
         uses: lukka/get-cmake@latest
         with:
