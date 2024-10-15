@@ -80,7 +80,7 @@ jobs:
           - id: ubuntu-clang-static-cxx26
             platform: ubuntu
             cc: clang
-            cpp: clang
+            cpp: clang++
             cmake_args: "-DCMAKE_CXX_STANDARD=26 -DCMAKE_CXX_STANDARD_REQUIRED=on"
 
     steps:
@@ -106,12 +106,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
                   clang \
-                  clang-tidy \
                   g++ \
                   ninja-build \
-                  cmake \
-                  git
-          sudo apt-get clean
+                  cmake
       - name: Build
         run: |
           cmake -B build -S . "${{ matrix.cmake_args }}"
