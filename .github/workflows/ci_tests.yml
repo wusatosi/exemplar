@@ -101,16 +101,16 @@ jobs:
         run: |
           sudo sysctl -a | grep vm.mmap.rnd
           sudo sysctl -w vm.mmap_rnd_bits=28
-      - name: Install CMake
-        uses: lukka/get-cmake@latest
-        with:
-          cmakeVersion: "~3.25.0"
-          ninjaVersion: "^1.11.1"
-        # GitHub Action comes with the latest stable G++ already.
-      - name: Install Clang
-        run: |
-          sudo apt-get update
-          sudo apt-get install clang
+      # - name: Install CMake
+      #   uses: lukka/get-cmake@latest
+      #   with:
+      #     cmakeVersion: "~3.25.0"
+      #     ninjaVersion: "^1.11.1"
+      #   # GitHub Action comes with the latest stable G++ already.
+      # - name: Install Clang
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install clang
       - name: Build
         run: |
           cmake -B build -S . "${{ matrix.cmake_args }}"
