@@ -101,14 +101,15 @@ jobs:
         run: |
           sudo sysctl -a | grep vm.mmap.rnd
           sudo sysctl -w vm.mmap_rnd_bits=28
-      - name: Install Dependencies
+      - name: Install CMake
+        uses: lukka/get-cmake@v3
+        with:
+          cmakeVersion: "~3.25.0"
+          ninjaVersion: "^1.11.1"
+      - name: Install Clang & G++
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-                  clang \
-                  g++ \
-                  ninja-build \
-                  cmake
+          sudo apt-get install g++ clang
       - name: Build
         run: |
           cmake -B build -S . "${{ matrix.cmake_args }}"
