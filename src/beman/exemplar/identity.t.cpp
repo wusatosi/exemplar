@@ -9,6 +9,12 @@
 
 namespace exe = beman::exemplar;
 
+    static int 
+
+test   = 0
+
+;
+
 TEST(IdentityTest, call_identity_with_int) {
     for (int i = -100; i < 100; ++i) {
         EXPECT_EQ(i, exe::identity()(i));
