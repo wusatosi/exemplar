@@ -69,7 +69,7 @@ jobs:
             cpp_version: 17
             cmake_args:
               description: "vcpkg"
-              args: "-DCMAKE_TOOLCHAIN_FILE=$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
+              args: "-D 'CMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake'"
 
     name: "Bulid & Test: ${{ matrix.compiler.c }} ${{ matrix.cpp_version }} ${{ matrix.cmake_args.description }}"
     runs-on: ${{ matrix.platform }}
