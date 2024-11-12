@@ -97,7 +97,7 @@ jobs:
         env:
           CC: ${{ matrix.compiler.c }}
           CXX: ${{ matrix.compiler.cpp }}
-          CMAKE_GENERATOR: ${{ matrix.compiler.generator || "Ninja Multi-Config" }}
+          CMAKE_GENERATOR: "${{ matrix.compiler.generator || 'Ninja Multi-Config' }}"
       - name: Build Release
         run: |
           cmake --build build --config Release --verbose
