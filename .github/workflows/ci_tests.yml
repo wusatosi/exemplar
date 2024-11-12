@@ -66,10 +66,11 @@ jobs:
             compiler:
               cpp: g++
               c: gcc
+              generator: "Ninja"
             cpp_version: 17
             cmake_args:
               description: "vcpkg"
-              args: "-D 'CMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake'"
+              args: "-DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
 
     name: "Bulid & Test: ${{ matrix.compiler.c }} ${{ matrix.cpp_version }} ${{ matrix.cmake_args.description }}"
     runs-on: ${{ matrix.platform }}
@@ -96,7 +97,7 @@ jobs:
         env:
           CC: ${{ matrix.compiler.c }}
           CXX: ${{ matrix.compiler.cpp }}
-          CMAKE_GENERATOR: "Ninja Multi-Config"
+          CMAKE_GENERATOR: ${{ matrix.compiler.generator || "Ninja Multi-Config" }}
       - name: Build Release
         run: |
           cmake --build build --config Release --verbose
