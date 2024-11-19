@@ -40,6 +40,10 @@ jobs:
             cpp: clang++
             c: clang
             os: ubuntu-latest
+          - description: "macos AppleClang"
+            cpp: gcc
+            c: gcc
+            os: macos-latest
         cpp_version: [17, 20, 23, 26]
         cmake_args:
           - description: "Default"
