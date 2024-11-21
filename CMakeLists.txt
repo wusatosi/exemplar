@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-cmake_minimum_required(VERSION 3.25)
+set(CMAKE_SKIP_TEST_ALL_DEPENDENCY FALSE)
+
+cmake_minimum_required(VERSION 3.25...3.31)
 
 project(
     beman.exemplar # CMake Project Name, which is also the name of the top-level
@@ -8,6 +10,10 @@ project(
     DESCRIPTION "A Beman library exemplar"
     LANGUAGES CXX
 )
+
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+    message(FATAL_ERROR "In-source builds are not allowed!")
+endif()
 
 # [CMAKE.SKIP_TESTS]
 option(
