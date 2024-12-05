@@ -26,6 +26,17 @@ option(
 include(FetchContent)
 include(GNUInstallDirs)
 
+# To install a beman dependency, we recommand using FetchContent.
+# Below is an example of including iterator_interface library as a dependency.
+#
+# FetchContent_Declare(
+#     beman.iterator_interface
+#     GIT_REPOSITORY https://github.com/bemanproject/iterator_interface.git
+#     GIT_TAG # Substitute this with a desired version/ commit
+#         EXCLUDE_FROM_ALL
+# )
+# FetchContent_MakeAvailable(beman.iterator_interface)
+
 if(BEMAN_EXEMPLAR_BUILD_TESTS)
     enable_testing()
 

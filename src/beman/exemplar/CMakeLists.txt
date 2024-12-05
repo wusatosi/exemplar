@@ -5,6 +5,11 @@ add_library(beman::exemplar ALIAS beman.exemplar)
 
 target_sources(beman.exemplar PRIVATE identity.cpp)
 
+# If you need to install a beman dependency (e.g. iterator_interface)
+# link it here.
+#
+# target_link_libraries(beman.exemplar INTERFACE beman::iterator_interface)
+
 target_sources(
     beman.exemplar
     PUBLIC
