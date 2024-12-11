@@ -39,7 +39,8 @@ jobs:
       - name: Collect coverage
         run: |
           lcov --directory build --capture --output-file ${{ runner.workspace }}/coverage_all.info
+          lcov --extract ${{ runner.workspace }}/coverage_all.info -o ${{ runner.workspace }}/coverage.info "$GITHUB_WORKSPACE/include/*"
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         with:
-          path-to-lcov: ${{ runner.workspace }}/coverage_all.info
+          path-to-lcov: ${{ runner.workspace }}/coverage.info
