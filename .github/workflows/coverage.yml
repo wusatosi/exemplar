@@ -17,6 +17,9 @@ jobs:
         with:
           cmakeVersion: "~3.25.0"
           ninjaVersion: "^1.11.1"
+      - name: Install lcov
+        run: |
+          sudo apt-get install lcov
       - name: Print installed softwares
         run: |
           g++ --version
@@ -31,8 +34,10 @@ jobs:
           CXX: g++
           CMAKE_GENERATOR: "Ninja Multi-Config"
       - name: Test Debug
-        run: ctest --test-dir build --build-config Debug
-      - name: Tree
-        run: tree
+        run: |
+          ctest --test-dir build --build-config Debug
+      - name: Collect coverage
+        run: |
+          lcov --directory build --capture --output-file build/coverage_all.info
       - name: Coveralls
         uses: coverallsapp/github-action@v2
