@@ -19,7 +19,7 @@ jobs:
           ninjaVersion: "^1.11.1"
       - name: Install lcov
         run: |
-          sudo apt-get install lcov
+          sudo apt-get install -y lcov
       - name: Print installed softwares
         run: |
           g++ --version
