@@ -122,7 +122,7 @@ jobs:
           # Portable commands only
           cmake --build build --config Release --verbose
           cmake --build build --config Release --target all_verify_interface_header_sets
-          cmake --install build --config Release --prefix /opt/beman.exemplar
+          sudo cmake --install build --config Release --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
       - name: Test Release
         run: ctest --test-dir build --build-config Release
@@ -131,7 +131,7 @@ jobs:
           # Portable commands only
           cmake --build build --config Debug --verbose
           cmake --build build --config Debug --target all_verify_interface_header_sets
-          cmake --install build --config Debug --prefix /opt/beman.exemplar
+          sudo cmake --install build --config Debug --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
       - name: Test Debug
         run: ctest --test-dir build --build-config Debug
