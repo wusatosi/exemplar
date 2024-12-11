@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+name: Coverage
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  generate-coverage:
+    name: "Generate and Upload Coverage"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "~3.25.0"
+          ninjaVersion: "^1.11.1"
+      - name: Print installed softwares
+        run: |
+          g++ --version
+          cmake --version
+          ninja --version
+      - name: Configure CMake and Build
+        run: |
+          cmake -B build -S . -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_FLAGS='-coverage'
+          cmake --build build --config Debug --verbose
+        env:
+          CC: gcc
+          CXX: g++
+          CMAKE_GENERATOR: "Ninja Multi-Config"
+      - name: Test Debug
+        run: ctest --test-dir build --build-config Debug
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
