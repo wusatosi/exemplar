@@ -41,3 +41,5 @@ jobs:
           lcov --directory build --capture --output-file build/coverage_all.info
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+        with:
+          path-to-lcov: build/coverage.info
