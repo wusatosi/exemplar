@@ -58,6 +58,9 @@ jobs:
           - description: "Windows MSVC"
             os: windows-latest
             toolchain: "cmake/msvc-toolchain.cmake"
+          - description: "Macos Clang"
+            os: macos-latest
+            toolchain: "cmake/appleclang-toolchain.cmake"
         cpp_version: [17, 20, 23, 26]
         cmake_args:
           - description: "Default"
