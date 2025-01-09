@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 name: Continuous Integration Tests
-
 on:
   push:
   pull_request:
@@ -9,7 +8,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '30 15 * * *'
-
 jobs:
   preset-test:
     runs-on: ubuntu-latest
@@ -26,7 +24,6 @@ jobs:
           ninjaVersion: "^1.11.1"
       - name: Run preset
         run: cmake --workflow --preset ${{ matrix.preset }}
-
   gtest-test:
     strategy:
       fail-fast: false
@@ -87,8 +84,6 @@ jobs:
               # Debug infomation needed to avoid cl: C5072
               # https://learn.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-c5072?view=msvc-170
               args: "-DCMAKE_CXX_FLAGS='/fsanitize=address /Zi'"
-
-
     name: "Unit: ${{ matrix.platform.description }} ${{ matrix.cpp_version }} ${{ matrix.cmake_args.description }}"
     runs-on: ${{ matrix.platform.os }}
     steps:
@@ -145,7 +140,6 @@ jobs:
           ls -R /opt/beman.exemplar
       - name: Test Debug
         run: ctest --test-dir build --build-config Debug
-
   configuration-test:
     runs-on: ubuntu-latest
     strategy:
@@ -186,7 +180,6 @@ jobs:
           cmake --build build --config Debug --target all_verify_interface_header_sets
           cmake --install build --config Debug --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
-
   create-issue-when-fault:
     runs-on: ubuntu-latest
     needs: [preset-test, gtest-test, configuration-test]

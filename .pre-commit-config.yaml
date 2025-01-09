@@ -1,39 +1,32 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-    - id: trailing-whitespace
-    - id: end-of-file-fixer
-    - id: check-yaml
-    - id: check-added-large-files
-    - id: pretty-format-json
-      args: ["--autofix", "--no-sort-keys"]
-
-    # Clang-format for C++
-    # This brings in a portable version of clang-format.
-    # See also: https://github.com/ssciwr/clang-format-wheel
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: pretty-format-json
+        args: ["--autofix", "--no-sort-keys"]
   - repo: https://github.com/pre-commit/mirrors-clang-format
     rev: v19.1.6
     hooks:
-    - id: clang-format
-      types_or: [c++, c]
-
-    # CMake linting and formatting
+      # Clang-format for C++
+      # This brings in a portable version of clang-format.
+      # See also: https://github.com/ssciwr/clang-format-wheel
+      - id: clang-format
+        types_or: [c++, c]
   - repo: https://github.com/BlankSpruce/gersemi
     rev: 0.17.1
     hooks:
-    - id: gersemi
-      name: CMake linting
-
-    # Markdown linting
-    # Config file: .markdownlint.yaml
+      - id: gersemi
+        name: CMake linting
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.43.0
     hooks:
-    - id: markdownlint
-
+      # Markdown linting
+      # Config file: .markdownlint.yaml
+      - id: markdownlint
   - repo: https://github.com/google/yamlfmt
     rev: v0.14.0
     hooks:
