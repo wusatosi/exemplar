@@ -14,7 +14,15 @@ It may also find use as a minimal and modern  C++ project structure.
 
 **Implements**: `std::identity` proposed in [Standard Library Concepts (P0898R3)](https://wg21.link/P0898R3).
 
-**Status**: [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#under-development-and-not-yet-ready-for-production-use)
+## Status
+
+`beman.exemplar` is [under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#under-development-and-not-yet-ready-for-production-use)
+
+The main paper is still subject to revisions and may create breaking change.
+
+The implemention is conforming to current paper but needs more testing to be production ready, contributions are welcome.
+
+![Beman Lifetime branding: Under development](beman_status-150x225.png)
 
 ## Usage
 
