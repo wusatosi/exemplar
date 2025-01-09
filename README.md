@@ -18,7 +18,7 @@ It may also find use as a minimal and modern  C++ project structure.
 
 `beman.exemplar` is [under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#under-development-and-not-yet-ready-for-production-use)
 
-The main paper is still subject to revisions and may create breaking change.
+The main paper is still subject to revisions and may create breaking change. Suggestions can be made via GitHub issues.
 
 The implemention is conforming to current paper but needs more testing to be production ready, contributions are welcome.
 
