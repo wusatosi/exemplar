@@ -33,3 +33,8 @@ repos:
     rev: v0.43.0
     hooks:
     - id: markdownlint
+
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.14.0
+    hooks:
+      - id: yamlfmt
