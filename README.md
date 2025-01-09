@@ -14,13 +14,15 @@ Implements: `std::identity` proposed in [Standard Library Concepts (P0898R3)](ht
 
 ## Usage
 
-`std::identity` is a function object type whose `operator()` returns its argument unchanged.
+`std::identity` is a function object type whose
+`operator()` returns its argument unchanged.
 `std::identity` serves as the default projection in constrained algorithms.
 Its direct usage is usually not needed.
 
 ### Usage: default projection in constrained algorithms
 
- The following code snippet illustrates how we can achieve a default projection using `beman::exemplar::identity`:
+The following code snippet illustrates how we can achieve a default projection
+using `beman::exemplar::identity`:
 
 ```cpp
 #include <beman/exemplar/identity.hpp>
@@ -75,7 +77,8 @@ int main()
 
 ```
 
-Full runnable examples can be found in `examples/` (e.g., [./examples/identity_as_default_projection.cpp](./examples/identity_as_default_projection.cpp)).
+Full runnable examples can be found in `examples/`
+(e.g., [./examples/identity_as_default_projection.cpp](./examples/identity_as_default_projection.cpp)).
 
 ## Building beman.exemplar
 
@@ -350,14 +353,16 @@ $ c++ -o identity_usage examples/identity_usage.cpp \
 
 <!-- TODO Darius: rewrite section! Add examples. -->
 
-For CMake based projects, you will need to use the `beman.exemplar` CMake module to define the `beman::exemplar` CMake target:
+For CMake based projects, you will need to use the `beman.exemplar` CMake module
+to define the `beman::exemplar` CMake target:
 
 ```cmake
 find_package(beman.exemplar REQUIRED)
 ```
 
 You will also need to add `beman::exemplar`
-to the link libraries of any libraries or executables that include `beman/exemplar/*.hpp` in their source or header file.
+to the link libraries of any libraries or executables that include
+`beman/exemplar/*.hpp` in their source or header file.
 
 ```cmake
 target_link_libraries(yourlib PUBLIC beman::exemplar)
@@ -371,7 +376,8 @@ target_link_libraries(yourlib PUBLIC beman::exemplar)
 <!-- TODO Darius: rewrite section! Add examples. -->
 
 Build systems that support `pkg-config` by providing a `beman.exemplar.pc` file.
-Build systems that support interoperation via `pkg-config` should be able to detect `beman.exemplar` for you automatically.
+Build systems that support interoperation via `pkg-config` should be able to
+detect `beman.exemplar` for you automatically.
 
 </details>
 
