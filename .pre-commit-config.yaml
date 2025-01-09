@@ -8,6 +8,8 @@ repos:
     - id: end-of-file-fixer
     - id: check-yaml
     - id: check-added-large-files
+    - id: pretty-format-json
+      args: ["--autofix", "--no-sort-keys"]
 
     # Clang-format for C++
     # This brings in a portable version of clang-format.
