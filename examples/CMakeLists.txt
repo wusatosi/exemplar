@@ -3,8 +3,8 @@
 set(ALL_EXAMPLES identity_direct_usage)
 
 # Example `identity_as_default_projection` need ranges support:
-include(../cmake/feature_test.cmake)
-beman_feature_test("__cpp_lib_ranges >= 201911L" HAS_RANGES)
+include(CheckCXXSymbolExists)
+check_cxx_symbol_exists(__cpp_lib_ranges "ranges" HAS_RANGES)
 
 if(HAS_RANGES)
     list(APPEND ALL_EXAMPLES identity_as_default_projection)
