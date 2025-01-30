@@ -13,6 +13,7 @@ on:
 jobs:
   preset-test:
     strategy:
+      fail-fast: false
       matrix:
         presets:
           - preset: "gcc-debug"
@@ -58,6 +59,9 @@ jobs:
           - description: "Windows MSVC"
             os: windows-latest
             toolchain: "cmake/msvc-toolchain.cmake"
+          - description: "Macos Appleclang"
+            os: macos-latest
+            toolchain: "cmake/appleclang-toolchain.cmake"
         cpp_version: [17, 20, 23, 26]
         cmake_args:
           - description: "Default"
@@ -103,6 +107,9 @@ jobs:
         uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
+      - name: Setup Macos
+        if: startsWith(matrix.platform.os, 'macos')
+        run: sudo chmod -R 777 /opt/
       - name: Print installed softwares
         shell: bash
         run: |
@@ -117,7 +124,7 @@ jobs:
       - name: Build Release
         run: |
           # Portable commands only
-          cmake --build build --config Release --verbose
+          cmake --build build --config Release --parallel --verbose
           cmake --build build --config Release --target all_verify_interface_header_sets
           cmake --install build --config Release --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
@@ -126,7 +133,7 @@ jobs:
       - name: Build Debug
         run: |
           # Portable commands only
-          cmake --build build --config Debug --verbose
+          cmake --build build --config Debug --parallel --verbose
           cmake --build build --config Debug --target all_verify_interface_header_sets
           cmake --install build --config Debug --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
@@ -136,6 +143,7 @@ jobs:
   configuration-test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         args:
           - name: "Disable build testing"
@@ -162,14 +170,14 @@ jobs:
       - name: Build Release
         run: |
           # Portable commands only
-          cmake --build build --config Release --verbose
+          cmake --build build --config Release --parallel --verbose
           cmake --build build --config Release --target all_verify_interface_header_sets
           cmake --install build --config Release --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
       - name: Build Debug
         run: |
           # Portable commands only
-          cmake --build build --config Debug --verbose
+          cmake --build build --config Debug --parallel --verbose
           cmake --build build --config Debug --target all_verify_interface_header_sets
           cmake --install build --config Debug --prefix /opt/beman.exemplar
           ls -R /opt/beman.exemplar
@@ -177,6 +185,7 @@ jobs:
   compiler-test:
     runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         compilers:
           - class: GNU
