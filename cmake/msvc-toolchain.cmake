@@ -26,7 +26,7 @@ if(BEMAN_BUILDSYS_SANITIZER STREQUAL "MaxSan")
     set(SANITIZER_FLAGS "/fsanitize=address /Zi")
 endif()
 
-# /Zc:__cplusplus is needed for us to detect C++ version support correctly
+# /Zc:__cplusplus is needed for us to detect C++ version support portably
 # See: https://stackoverflow.com/questions/60052108/how-to-check-c-version-in-microsoft-visual-studio-2017
 set(BASE_FLAGS "/Zc:__cplusplus /EHsc /permissive-")
 
