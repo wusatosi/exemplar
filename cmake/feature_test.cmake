@@ -29,7 +29,7 @@ function(BEMAN_MIN_CXX_VERSION CXX_VERSION)
 
     list(FIND VERSION_MAP "${CXX_VERSION}" INDEX)
     if(INDEX EQUAL -1)
-        message(FATAL_ERROR "Unkown required C++ version: ${CXX_VERSION}")
+        message(FATAL_ERROR "Unknown required C++ version: ${CXX_VERSION}")
     else()
         math(EXPR INDEX "${INDEX} + 1")
         list(GET VERSION_MAP ${INDEX} VERSION_DATE)
