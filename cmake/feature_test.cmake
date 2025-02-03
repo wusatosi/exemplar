@@ -37,6 +37,15 @@ function(BEMAN_MIN_CXX_VERSION CXX_VERSION)
 
     beman_feature_test("__cplusplus >= ${VERSION_DATE}" CXX_VERSION_MET)
     if(NOT CXX_VERSION_MET)
+        if(MSVC)
+            message(
+                WARNING
+                "Note: C++ version support detection requires a well-formed __cplusplus feature flag, \
+            MSVC does not set this flag correctly unless /Zc:__cplusplus flag is passed through.\
+            If you believe minimum C++ version detection is function incorrectly,\
+            please double check your compiler flags or use the provided presets if available."
+            )
+        endif()
         message(
             FATAL_ERROR
             "This project requires a minimum C++ version of ${CXX_VERSION}"
