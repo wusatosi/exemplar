@@ -2,12 +2,7 @@
 
 cmake_minimum_required(VERSION 3.25)
 
-project(
-    beman.exemplar # CMake Project Name, which is also the name of the top-level
-    # targets (e.g., library, executable, etc.).
-    DESCRIPTION "A Beman library exemplar"
-    LANGUAGES CXX
-)
+project(beman.exemplar DESCRIPTION "A Beman library exemplar" LANGUAGES CXX)
 
 enable_testing()
 
@@ -41,7 +36,7 @@ if(BEMAN_EXEMPLAR_BUILD_TESTS)
     FetchContent_MakeAvailable(googletest)
 endif()
 
-add_subdirectory(src/beman/exemplar)
+add_subdirectory(include/beman/exemplar)
 
 if(BEMAN_EXEMPLAR_BUILD_TESTS)
     add_subdirectory(tests/beman/exemplar)
