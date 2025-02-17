@@ -12,7 +12,7 @@ Please follow our code of conduct when engaging in the beman community:
 https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 -->
 
-**Use case**
+## Use case
 
 Describe what use case did you try.
 
@@ -20,14 +20,14 @@ Describe what use case did you try.
 // example snipet
 ```
 
-**What I like**
+## What I like
 
 Let us know what you find positive about current approach/ design.
 
-**What I dislike**
+## What I dislike
 
 Let us know what you find negative about current approach/ design.
 
-**Discussion**
+## Discussion
 
 Let us know if you have any more remarks.
