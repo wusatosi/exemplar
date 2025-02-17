@@ -22,7 +22,7 @@ They are easier and faster to review.
 They are also less likely to introduce bugs.
 
 While we do not endorse this as our guideline,
-we encourage you to checkout and follow 
+we encourage you to checkout and follow
 "The CL author’s guide to getting through code review".
 https://google.github.io/eng-practices/review/developer/
 
@@ -35,6 +35,7 @@ The command to check all files in the directory is:
 pre-commit run --all-files
 -->
 
+<!-- markdownlint-disable-next-line MD041 -->
 ## Description
 
 Please describe your contribution in a single sentence.
