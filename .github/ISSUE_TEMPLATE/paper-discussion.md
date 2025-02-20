@@ -14,10 +14,10 @@ https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 
 ## Use case
 
-Describe what use case did you try.
+Describe your concerns about adding this change to the C++ standard library.
 
 ```c++
-// example snipet
+// example snippet
 ```
 
 ## What I like

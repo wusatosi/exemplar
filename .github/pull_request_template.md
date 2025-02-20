@@ -17,18 +17,17 @@ If you are updating documentations:
 If you are updating any implementation details:
 - Make sure you submit appropriate testing.
 
-We encourage small & incremental additions instead of grand remakes.
+We encourage small & incremental additions instead of large redesigns.
 They are easier and faster to review.
 They are also less likely to introduce bugs.
 
-While we do not endorse this as our guideline,
-we encourage you to checkout and follow
+While we do not formally adopt this guide as a standard,
+we encourage you to read and consider:
 "The CL author’s guide to getting through code review".
 https://google.github.io/eng-practices/review/developer/
 
-If this is a bit overwhelming,
-feel free to open a PR on your existing changes,
-we will help out.
+Regardless, feel free to open a PR on your existing changes.
+We appreciate the suggestion and will help out.
 
 Please run pre-commit against your change to comply with our linting rules.
 The command to check all files in the directory is:
