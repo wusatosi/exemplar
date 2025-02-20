@@ -1,6 +1,6 @@
 ---
 name: Implementation Deficiency
-about: Report an bug or performance issue of our implementation
+about: Report a bug or performance issue of our implementation
 title: ''
 labels: bug
 assignees: ''
@@ -15,6 +15,7 @@ https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 ## Describe the deficiency
 
 A clear and concise description of what the deficiency is.
+Link all relevant issues.
 This could be a bug, or a performance problem.
 
 ## To Reproduce
