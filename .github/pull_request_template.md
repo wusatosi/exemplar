@@ -45,7 +45,7 @@ Please describe your contribution in a single sentence.
 
 ## Motivation and Context
 
-Explain why this change.
+Explain why this change is needed.
 
 ## Testing
 
