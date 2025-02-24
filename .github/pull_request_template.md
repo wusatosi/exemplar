@@ -8,7 +8,7 @@ Thank you for your contribution!
 
 If you are updating project structure or build configs:
 - Make sure your contribution does not go against the beman standard:
-  https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
+  https://github.com/bemanproject/beman/blob/main/docs/BEMAN_STANDARD.md
 - For new CMake arguments/ presets: please make sure you added appropriate CI tests.
 
 If you are updating documentations:
