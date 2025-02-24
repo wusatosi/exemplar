@@ -51,4 +51,4 @@ Explain why this change.
 
 Explain how is this tested.
 
-- [ ] I have run pre-commit on latest my change.
+<!-- if you are a first time contributor, make sure you run pre-commit before opening a PR -->
