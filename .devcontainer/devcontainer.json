@@ -4,7 +4,7 @@
 {
 	"name": "Beman Project Generic Devcontainer",
 	"image": "ghcr.io/bemanproject/devcontainers:gnu-14",
-	"postCreateCommand": "pre-commit install",
+	"postCreateCommand": "pre-commit",
 	"customizations": {
 		"vscode": {
 			"extensions": [
