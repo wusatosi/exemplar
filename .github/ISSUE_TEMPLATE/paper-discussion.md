@@ -22,7 +22,7 @@ Describe your concerns about adding this change to the C++ standard library.
 
 ## What I like
 
-Let us know what you find positive about current approach/ design.
+Let us know what you find positive about current approach / design.
 
 ## What I dislike
 
