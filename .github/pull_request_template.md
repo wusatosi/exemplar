@@ -31,7 +31,7 @@ We appreciate the suggestion and will help out.
 
 Please run pre-commit against your change to comply with our linting rules.
 The command to check all files in the directory is:
-pre-commit run --all-files
+$ pre-commit run --all-files
 -->
 
 <!-- markdownlint-disable-next-line MD041 -->
