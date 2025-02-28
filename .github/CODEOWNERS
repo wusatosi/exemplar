@@ -20,5 +20,5 @@
 # .pre-commit-config.yaml @wusatosi # Add other project owners here
 # .markdownlint.yaml @wusatosi # Add other project owners here
 
-*  @beman-codeowners
+*  @bemanproject/beman-codeowners
 
