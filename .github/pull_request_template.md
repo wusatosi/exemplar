@@ -17,7 +17,7 @@ If you are updating documentations:
 If you are updating any implementation details:
 - Make sure you submit appropriate testing.
 
-We encourage small & incremental additions instead of large redesigns.
+We encourage small and incremental additions instead of large redesigns.
 They are easier and faster to review.
 They are also less likely to introduce bugs.
 
