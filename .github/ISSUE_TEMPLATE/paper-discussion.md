@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!--
-Please follow our code of conduct when engaging in the beman community:
+Please follow our code of conduct when engaging in the Beman community:
 https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 -->
 
