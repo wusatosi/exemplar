@@ -26,7 +26,7 @@ Let us know what you find positive about current approach / design.
 
 ## What I dislike
 
-Let us know what you find negative about current approach/ design.
+Let us know what you find negative about current approach / design.
 
 ## Discussion
 
