@@ -9,7 +9,7 @@ Thank you for your contribution!
 If you are updating project structure or build configs:
 - Make sure your contribution does not go against the Beman Standard:
   https://github.com/bemanproject/beman/blob/main/docs/BEMAN_STANDARD.md
-- For new CMake arguments/ presets: please make sure you added appropriate CI tests.
+- For new CMake arguments / presets: please make sure you added appropriate CI tests.
 
 If you are updating documentations:
 - Make sure badges and pictures does not impact readability.
