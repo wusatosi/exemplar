@@ -51,4 +51,18 @@ Explain why this change is needed.
 
 Explain how is this tested.
 
+## Meta
+
+<!--
+The convention in beman is for the PR author to merge the PR once it's ready,
+you can check this box to indicate that you would like beman members to merge the PR
+for you when appropropriate reviews have passed.
+
+Please note that stale PR may still be merged by a beman member,
+if you need significant time to work on your PR,
+leave a comment and change it's status to closed or draft.
+-->
+
+- [ ] If this PR is approved, beman members can merge this PR for me.
+
 <!-- make sure you run pre-commit before opening a PR -->
