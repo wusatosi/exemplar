@@ -62,13 +62,10 @@ Please note that:
 1. Stale PR may still be merged by a Beman member,
 if you need significant time to work on your PR,
 leave a comment and change it's status to draft.
-2. If you are not a member of Beman project,
-you may not have the permission necessary to merge a PR.
+2. If you are not a member of the Beman project,
+you may not have the permission necessary to merge your own PR.
 -->
 
-Please pick one:
-
-- [ ] Once this PR is approved, I will and perfer to merge this PR myself.
-- [ ] Once this PR is approved, Beman members can merge this PR for me.
+- [ ] If all approvals are obtained and the PR is green, any Beman member can merge the PR.
 
 <!-- make sure you run pre-commit before opening a PR -->
