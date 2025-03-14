@@ -55,14 +55,20 @@ Explain how is this tested.
 
 <!--
 The convention in Beman is for the PR author to merge the PR once it's ready.
-More over, you can check this box to indicate that you would like the Beman members to merge the PR
+You can check this box to indicate that you would like Beman members to merge the PR
 for you when appropropriate reviews have passed.
 
-Please note that stale PR may still be merged by a Beman member,
+Please note that:
+1. Stale PR may still be merged by a Beman member,
 if you need significant time to work on your PR,
-leave a comment and change it's status to closed or draft.
+leave a comment and change it's status to draft.
+2. If you are not a member of Beman project,
+you may not have the permission necessary to merge a PR.
 -->
 
-- [ ] If this PR is approved, Beman members can merge this PR for me.
+Please pick one:
+
+- [ ] Once this PR is approved, I will and perfer to merge this PR myself.
+- [ ] Once this PR is approved, Beman members can merge this PR for me.
 
 <!-- make sure you run pre-commit before opening a PR -->
