@@ -14,7 +14,7 @@ https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 
 ## Use case
 
-Describe your concerns about adding this change to the C++ standard library.
+Describe your concerns about adding this change to the C++ Standard Library.
 
 ```c++
 // example snippet
