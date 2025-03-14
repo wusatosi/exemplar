@@ -266,7 +266,6 @@ Example commands:
 
 ```shell
 cmake -B build -S . \
-    -DCMAKE_TOOLCHAIN_FILE=./cmake/gnu-toolchain.cmake \
     -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=./cmake/use-fetch-content.cmake \
     -DCMAKE_CXX_STANDARD=20
 cmake --build build --target all
