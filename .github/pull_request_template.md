@@ -7,14 +7,14 @@ https://github.com/bemanproject/beman/blob/main/docs/CODE_OF_CONDUCT.md
 Thank you for your contribution!
 
 If you are updating project structure or build configs:
-- Make sure your contribution does not go against the Beman Standard:
+- Make sure your contribution conforms to the Beman Standard:
   https://github.com/bemanproject/beman/blob/main/docs/BEMAN_STANDARD.md
 - For new CMake arguments / presets: please make sure you added appropriate CI tests.
 
-If you are updating documentations:
+If you are updating documentation:
 - Make sure badges and pictures does not impact readability.
 
-If you are updating any implementation details:
+If you are updating implementations:
 - Make sure you submit appropriate testing.
 
 We encourage small and incremental additions instead of large redesigns.
@@ -54,15 +54,15 @@ Explain how is this tested.
 ## Meta
 
 <!--
-The convention in beman is for the PR author to merge the PR once it's ready,
-you can check this box to indicate that you would like beman members to merge the PR
+The convention in Beman is for the PR author to merge the PR once it's ready.
+More over, you can check this box to indicate that you would like the Beman members to merge the PR
 for you when appropropriate reviews have passed.
 
-Please note that stale PR may still be merged by a beman member,
+Please note that stale PR may still be merged by a Beman member,
 if you need significant time to work on your PR,
 leave a comment and change it's status to closed or draft.
 -->
 
-- [ ] If this PR is approved, beman members can merge this PR for me.
+- [ ] If this PR is approved, Beman members can merge this PR for me.
 
 <!-- make sure you run pre-commit before opening a PR -->
