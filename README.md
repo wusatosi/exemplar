@@ -158,9 +158,9 @@ GitHub codespaces, please reference [this doc](https://docs.github.com/en/codesp
 <details>
 <summary> For Linux based systems </summary>
 
-Beman libraries requires [recent versions of CMake](#build-environment),
-we advice you download CMake directly from [CMake's website](https://cmake.org/download/)
-or install via the [Kitware apt library](https://apt.kitware.com/).
+Beman libraries require [recent versions of CMake](#build-environment),
+we advise you to download CMake directly from [CMake's website](https://cmake.org/download/)
+or install it via the [Kitware apt library](https://apt.kitware.com/).
 
 A [supported compiler](#supported-platforms) should be available from your package manager.
 Alternatively you could use an install script from official compiler vendors.
@@ -198,11 +198,31 @@ brew install cmake
 
 A [supported compiler](#supported-platforms) is also available from brew.
 
-For example, you can install latest major release of Clang++ compiler as:
+For example, you can install the latest major release of Clang as:
 
 ```bash
 brew install llvm
 ```
+
+</details>
+
+<details>
+<summary> For Windows </summary>
+
+To build Beman libraries, you will need the MSVC compiler. MSVC can be obtained
+by installing Visual Studio; the free Visual Studio 2022 Community Edition can
+be downloaded from
+[Microsoft](https://visualstudio.microsoft.com/vs/community/).
+
+After Visual Studio has been installed, you can launch "Developer PowerShell for
+VS 2022" by typing it into Windows search bar. This shell environment will
+provide CMake, Ninja, and MSVC, allowing you to build the library and run the
+tests.
+
+Note that you will need to use FetchContent to build GoogleTest. To do so,
+please see the instructions in the "Build GoogleTest dependency from github.com"
+dropdown in the [Project specific configure
+arguments](#project-specific-configure-arguments) section.
 
 </details>
 
@@ -219,7 +239,7 @@ Here is an example to invoke the `gcc-debug` preset.
 cmake --workflow --preset gcc-debug
 ```
 
-Generally, there's two kinds of presets, `debug` and `release`.
+Generally, there are two kinds of presets, `debug` and `release`.
 
 The `debug` presets are designed to aid development, so it has debugging
 instrumentation enabled and as many sanitizers turned on as possible.
@@ -227,11 +247,11 @@ instrumentation enabled and as many sanitizers turned on as possible.
 > [!NOTE]
 >
 > The set of sanitizer supports are different across compilers.
-> You can checkout the exact set compiler arguments by looking at the toolchain
+> You can checkout the exact set of compiler arguments by looking at the toolchain
 > files under the [`cmake`](cmake/) directory.
 
 The `release` presets are designed for use in production environments,
-thus it has the highest optimization turned on (e.g. `O3`).
+thus they have the highest optimization turned on (e.g. `O3`).
 
 ### Configure and Build Manually
 
@@ -240,7 +260,7 @@ convenient, you might want to set different configuration or compiler arguments
 than any provided preset supports.
 
 To configure, build and test the project with extra arguments,
-you can run this sets of command.
+you can run this set of commands.
 
 ```bash
 cmake -B build -S . -DCMAKE_CXX_STANDARD=20 # Your extra arguments here.
@@ -253,7 +273,7 @@ ctest --test-dir build
 > Beman projects are
 > [passive projects](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_STANDARD.md#cmake),
 > therefore,
-> you will need to specify C++ version via `CMAKE_CXX_STANDARD`
+> you will need to specify the C++ version via `CMAKE_CXX_STANDARD`
 > when manually configuring the project.
 
 ### Finding and Fetching GTest from GitHub
