@@ -119,6 +119,10 @@ jobs:
           arch: x64
       - name: Build and Test
         uses: ./.github/actions/cmake-build-test
+        with:
+          cpp_version: ${{ matrix.cpp_version }}
+          toolchain_file: ${{ matrix.platform.toolchain }}
+          cmake_extra_args: ${{ matrix.cmake_args.args }}
 
   configuration-test:
     runs-on: ubuntu-latest
