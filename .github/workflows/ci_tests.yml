@@ -5,7 +5,6 @@ name: Continuous Integration Tests
 on:
   push:
   pull_request:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   schedule:
     - cron: '30 15 * * *'
@@ -118,43 +117,8 @@ jobs:
         uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-      - name: Setup Macos
-        if: startsWith(matrix.platform.os, 'macos')
-        run: sudo chmod -R 777 /opt/
-      - name: Print installed software
-        shell: bash
-        run: |
-          echo "Build system:"
-          cmake --version
-          ninja --version
-      - name: Configure CMake
-        run: 'cmake
-                 -B build
-                 -S .
-                 -DCMAKE_CXX_STANDARD=${{ matrix.cpp_version }}
-                 -DCMAKE_TOOLCHAIN_FILE="${{ matrix.platform.toolchain }}"
-                 -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES="./cmake/use-fetch-content.cmake"
-                 ${{ matrix.cmake_args.args }}'
-        env:
-          CMAKE_GENERATOR: "Ninja Multi-Config"
-      - name: Build Release
-        run: |
-          # Portable commands only
-          cmake --build build --config Release --parallel --verbose
-          cmake --build build --config Release --target all_verify_interface_header_sets
-          cmake --install build --config Release --prefix /opt/beman.exemplar
-          ls -R /opt/beman.exemplar
-      - name: Test Release
-        run: ctest --test-dir build --build-config Release
-      - name: Build Debug
-        run: |
-          # Portable commands only
-          cmake --build build --config Debug --parallel --verbose
-          cmake --build build --config Debug --target all_verify_interface_header_sets
-          cmake --install build --config Debug --prefix /opt/beman.exemplar
-          ls -R /opt/beman.exemplar
-      - name: Test Debug
-        run: ctest --test-dir build --build-config Debug
+      - name: Build and Test
+        uses: .github/actions/cmake-build-test
 
   configuration-test:
     runs-on: ubuntu-latest
