@@ -118,7 +118,7 @@ jobs:
         with:
           arch: x64
       - name: Build and Test
-        uses: .github/actions/cmake-build-test
+        uses: ./.github/actions/cmake-build-test
 
   configuration-test:
     runs-on: ubuntu-latest
