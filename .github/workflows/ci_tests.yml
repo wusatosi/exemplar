@@ -263,6 +263,7 @@ jobs:
           cmake \
               -B build \
               -S . \
+              -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=./cmake/use-fetch-content.cmake \
               -DCMAKE_CXX_STANDARD=20
         env:
           CC: ${{ steps.install-compiler.outputs.CC }}
