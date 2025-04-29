@@ -181,18 +181,25 @@ jobs:
         compilers:
           - class: GNU
             version: 14
+            toolchain: "cmake/gnu-toolchain.cmake"
           - class: GNU
             version: 13
+            toolchain: "cmake/gnu-toolchain.cmake"
           - class: GNU
             version: 12
+            toolchain: "cmake/gnu-toolchain.cmake"
           - class: LLVM
             version: 20
+            toolchain: "cmake/llvm-toolchain.cmake"
           - class: LLVM
             version: 19
+            toolchain: "cmake/llvm-toolchain.cmake"
           - class: LLVM
             version: 18
+            toolchain: "cmake/llvm-toolchain.cmake"
           - class: LLVM
             version: 17
+            toolchain: "cmake/llvm-toolchain.cmake"
     name: "Compiler: ${{ matrix.compilers.class }} ${{ matrix.compilers.version }}"
     steps:
       - uses: actions/checkout@v4
@@ -231,25 +238,11 @@ jobs:
 
           echo "CC=$CC" >> "$GITHUB_OUTPUT"
           echo "CXX=$CXX" >> "$GITHUB_OUTPUT"
-      - name: Configure CMake
-        run: |
-          cmake \
-              -B build \
-              -S . \
-              -DCMAKE_CXX_STANDARD=20
-        env:
-          CC: ${{ steps.install-compiler.outputs.CC }}
-          CXX: ${{ steps.install-compiler.outputs.CXX }}
-          CMAKE_GENERATOR: "Ninja Multi-Config"
-      - name: Build Debug
-        run: |
-          cmake --build build --config Debug --verbose
-          cmake --build build --config Debug --target all_verify_interface_header_sets
-          cmake --install build --config Debug --prefix /opt/beman.exemplar
-          find /opt/beman.exemplar -type f
-      - name: Test Debug
-        run: ctest --test-dir build --build-config Debug
-
+      - name: Build and Test
+        uses: ./.github/actions/cmake-build-test
+        with:
+          cpp_version: 20
+          toolchain_file: ${{ matrix.compilers.toolchain }}
 
   create-issue-when-fault:
     runs-on: ubuntu-latest
