@@ -47,11 +47,7 @@ jobs:
         with:
           arch: x64
       - name: Run preset
-        run: |
-          cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES="./cmake/use-fetch-content.cmake" --preset ${{ matrix.presets.preset }}
-          cmake --build --preset ${{ matrix.presets.preset }} --parallel --verbose
-          cmake --build --preset ${{ matrix.presets.preset }} --parallel --verbose --target all_verify_interface_header_sets
-          ctest --preset ${{ matrix.presets.preset }}
+        run: cmake --workflow --preset ${{ matrix.presets.preset }}
 
   gtest-test:
     strategy:
@@ -238,7 +234,6 @@ jobs:
         run: |
           sudo add-apt-repository universe
           sudo apt-get update
-          sudo apt-get install -y libgtest-dev
 
           if [ "${{ matrix.compilers.class }}" = "GNU" ]; then
             CC=gcc-${{ matrix.compilers.version }}
@@ -268,6 +263,7 @@ jobs:
           cmake \
               -B build \
               -S . \
+              -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=./cmake/use-fetch-content.cmake \
               -DCMAKE_CXX_STANDARD=20
         env:
           CC: ${{ steps.install-compiler.outputs.CC }}
