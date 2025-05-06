@@ -56,7 +56,7 @@ Explain how is this tested.
 <!--
 The convention in Beman is for the PR author to merge the PR once it's ready.
 You can check this box to indicate that you would like Beman members to merge the PR
-for you when appropropriate reviews have passed.
+for you when appropriate reviews have passed.
 
 Please note that:
 1. Stale PR may still be merged by a Beman member,

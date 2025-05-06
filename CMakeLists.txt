@@ -7,10 +7,8 @@ project(
     # targets (e.g., library, executable, etc.).
     DESCRIPTION "A Beman library exemplar"
     LANGUAGES CXX
-    VERSION 0.1.0
+    VERSION 2.1.1
 )
-
-enable_testing()
 
 # [CMAKE.SKIP_TESTS]
 option(
@@ -32,8 +30,7 @@ option(
     ${PROJECT_IS_TOP_LEVEL}
 )
 
-include(FetchContent)
-include(GNUInstallDirs)
+include(CTest)
 
 add_subdirectory(src/beman/exemplar)
 
