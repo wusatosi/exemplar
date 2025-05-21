@@ -10,6 +10,12 @@ on:
   schedule:
     - cron: '30 15 * * *'
 
+env:
+  A: 
+    - A
+    - B
+    - C
+
 jobs:
   preset-test:
     strategy:
